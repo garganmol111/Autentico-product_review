@@ -1,0 +1,92 @@
+#viewContainer{
+	width: 100%;
+	min-height: 100%;
+	display: table;
+}
+
+#searchBarContainer {
+	height: 75px;
+	background-color:#101010;
+}
+
+#sideBar {
+	display: table-cell;
+	width: 13%;
+	left: 0;
+	height: 100vh;
+	background-color:#101010;
+	vertical-align: top;
+}
+
+#viewArea {
+	display: table-cell;
+	margin-left: 220px;
+	width: 87%;
+	vertical-align: top;
+}
+
+.card {
+ 	display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 270px;
+    height: 400px;
+    cursor: pointer;
+    margin: 10px;
+     	
+}
+.card:hover {
+    box-shadow: 16px 16px 16px 16px rgba(0,0,0,0.2);
+}
+
+.card img{
+	height: 300px;
+	width: 50%;
+	padding: 10px 0px;
+	background-color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.icon {
+	width: 25px;
+	height: 25px;
+	float: right;
+	margin-right: 13px;
+	margin-top: 4px;
+	cursor: pointer;
+}
+
+#searchBar {
+	height: 40px;
+	width: 500px;
+	border-style: solid;
+	border-color: #222222;
+	border-radius: 50px;
+	display: block;
+	margin: auto;
+}
+
+.cardContainer {
+	padding: 5px;
+}
+
+.card a{
+	text-decoration: none;
+	color: #cccccc;
+}
+
+.card:hover a{
+	color: #a0a0a0;
+}
+
+#heading {
+	width: 100%;
+	text-align: center;
+	padding: 30px;
+}
+
+.image {
+	background-color: #fff;
+}
