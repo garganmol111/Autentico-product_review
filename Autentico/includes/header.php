@@ -40,7 +40,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="landing.php">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="Contact/contact.html">Contact</a></li>
                 <li><a href="browse.php">Browse</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
