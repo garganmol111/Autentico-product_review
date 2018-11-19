@@ -38,9 +38,21 @@ class Review{
 		}
 	}
 	private function insertReview($re){
-		$query = "INSERT INTO reviews (userId,productId,review) VALUES (?,?,?)";
+
+		$url="http://localhost:5000/predict";
+		$ch=curl_init();
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		$data =  array(
+      		"review"=> $re
+  		);
+  		curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+		$reaction= curl_exec($ch);
+		curl_close($ch);
+
+		$query = "INSERT INTO reviews (userId,productId,review,sentiment) VALUES (?,?,?,?)";
         $stmt = $this->con->prepare($query);
-        $stmt->bind_param('sss',$this->userId,$this->productId,$re);
+        $stmt->bind_param('ssss',$this->userId,$this->productId,$re,$reaction);
         $stmt->execute();
         $stmt->fetch();
 	}
