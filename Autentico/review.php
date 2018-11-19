@@ -6,16 +6,13 @@
 	include("includes/header.php");
 
 	if(isset($_SESSION['userId'])) {
-		$userId=$_SESSION['userId'];
-		echo "Welcome, ".$userId;
-		
+		$userId=$_SESSION['userId'];		
 	}
 	if(isset($_POST['reviewButton'])){
 		echo 'Thanks for the review !';
 	}
 	if (isset($_GET['id'])){
 		$_SESSION['productId']= $_GET['id'];
-		echo "Product Id : ".$_SESSION['productId'];
 	}
 
 

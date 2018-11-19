@@ -26,20 +26,23 @@ class Review{
 		}
 	}
 	private function validateUniqueReview($re){
-		$checkReview=mysqli_query($this->con,"SELECT COUNT(*) FROM reviews WHERE userId='$this->userId' AND productId='$this->productId' ");
-		if ($checkReview!=0){
+		$query = "SELECT COUNT(*) FROM reviews WHERE userId=? AND productId=? ";
+        $stmt = $this->con->prepare($query);
+        $stmt->bind_param('ss',$this->userId,$this->productId);
+        $stmt->execute();
+        $stmt->bind_result($result);
+        $stmt->fetch();
+		if ($result!=0){
 			array_push($this->errorArray,Constants::$alreadyReviewed);
 			return;
 		}
 	}
 	private function insertReview($re){
-		$query = "INSERT INTO reviews VALUES (?,?,?)";
+		$query = "INSERT INTO reviews (userId,productId,review) VALUES (?,?,?)";
         $stmt = $this->con->prepare($query);
-        $stmt->bind_param('sss',$this->userId,$this->productId, $re);
+        $stmt->bind_param('sss',$this->userId,$this->productId,$re);
         $stmt->execute();
-        $stmt->bind_result($result);
         $stmt->fetch();
-		return $result;
 	}
 	public function review($re){
 		$this->validateReviewLength($re);
