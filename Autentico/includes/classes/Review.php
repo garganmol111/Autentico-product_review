@@ -2,14 +2,14 @@
 
 class Review{
 	private $con;
-	private $username;
+	private $userId;
 	private $productId;
 	private $review;
 	private $errorArray;
-	public function __construct($username,$productId,$con){
+	public function __construct($userId,$productId,$con){
 		$this->con=$con;
 		$this->errorArray=array();
-		$this->username=$username;
+		$this->userId=$userId;
 		$this->productId=$productId;
 	}
 	public function getError($error){
@@ -26,22 +26,16 @@ class Review{
 		}
 	}
 	private function validateUniqueReview($re){
-		$query = "SELECT id FROM users WHERE username=?";
-        $stmt = $this->con->prepare($query);
-        $stmt->bind_param('s',$this->username);
-        $stmt->execute();
-        $stmt->bind_result($cun);
-        $stmt->fetch();
-		$checkReview=mysqli_query($this->con,"SELECT COUNT(*) FROM reviews WHERE userId='$cun' AND productId='$this->productId' ");
+		$checkReview=mysqli_query($this->con,"SELECT COUNT(*) FROM reviews WHERE userId='$this->userId' AND productId='$this->productId' ");
 		if ($checkReview!=0){
 			array_push($this->errorArray,Constants::$alreadyReviewed);
 			return;
 		}
 	}
 	private function insertReview($re){
-		$query = "INSERT INTO reviews VALUES (?,?,'$re')";
+		$query = "INSERT INTO reviews VALUES (?,?,?)";
         $stmt = $this->con->prepare($query);
-        $stmt->bind_param('ss',$this->username,$this->productId);
+        $stmt->bind_param('sss',$this->userId,$this->productId, $re);
         $stmt->execute();
         $stmt->bind_result($result);
         $stmt->fetch();

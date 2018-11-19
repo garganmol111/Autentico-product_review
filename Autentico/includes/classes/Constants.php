@@ -12,6 +12,8 @@ class Constants{
 	public static $usernameTaken="This username already exists";
 	public static $emailTaken="This email is already in use";
 	public static $loginFailed="Your username or password was incorrect";
+	public static $reviewLength="Review has to be more than 10 letters";
+	public static $alreadyReviewed="You have already reviewed this product";
 }
 
 

@@ -5,9 +5,9 @@
 	include("includes/classes/Constants.php"); 
 	include("includes/header.php");
 
-	if(isset($_SESSION['userLoggedIn'])) {
-		$username=$_SESSION['userLoggedIn'];
-		echo "Welcome, ".$username;
+	if(isset($_SESSION['userId'])) {
+		$userId=$_SESSION['userId'];
+		echo "Welcome, ".$userId;
 		
 	}
 	if(isset($_POST['reviewButton'])){
@@ -19,7 +19,7 @@
 	}
 
 
-	$review = new Review($username,$_SESSION['productId'],$con);
+	$review = new Review($userId,$_SESSION['productId'],$con);
 	include("includes/handlers/review-handler.php");
 ?>
 	<div id="reviewContainer">
