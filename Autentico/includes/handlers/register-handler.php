@@ -31,6 +31,13 @@ if(isset($_POST['registerButton'])) {
 	$wasSuccessful=$account->register($username,$firstName,$lastName,$email,$email2,$password,$password2);
 	if($wasSuccessful == true){
 		$_SESSION['userLoggedIn']=$username;
+		$query = "SELECT id FROM users WHERE username=?";
+		$stmt = $con->prepare($query);
+		$stmt->bind_param('s',$username);
+		$stmt->execute();
+		$stmt->bind_result($cun);
+		$stmt->fetch();
+		$_SESSION['userId']=$cun;
 		header("Location:browse.php");
 	}
 }
