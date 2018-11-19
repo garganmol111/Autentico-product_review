@@ -1,5 +1,4 @@
 <?php 
-	session_start();
 	include("includes/header.php");
 	include("includes/classes/Product.php");
 	include("includes/classes/Constants.php"); 

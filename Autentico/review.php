@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include("includes/config.php");
 	include("includes/classes/Review.php");
 	include("includes/classes/Constants.php"); 
@@ -14,8 +13,6 @@
 	if (isset($_GET['id'])){
 		$_SESSION['productId']= $_GET['id'];
 	}
-
-
 	$review = new Review($userId,$_SESSION['productId'],$con);
 	include("includes/handlers/review-handler.php");
 ?>
