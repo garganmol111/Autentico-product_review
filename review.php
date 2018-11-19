@@ -1,29 +1,30 @@
 <?php
-session_start();
-include("includes/config.php");
-include("includes/classes/Review.php");
-include("includes/classes/Constants.php"); 
-include("includes/header.php");
-$review = new review($con);
-include("includes/handlers/review-handler.php");
-?>
-<?php
+	session_start();
+	include("includes/config.php");
+	include("includes/classes/Review.php");
+	include("includes/classes/Constants.php"); 
+	include("includes/header.php");
+
 	if(isset($_SESSION['userLoggedIn'])) {
-		echo "Welcome, ".$_SESSION['userLoggedIn'];
+		$username=$_SESSION['userLoggedIn'];
+		echo "Welcome, ".$username;
+		
 	}
 	if(isset($_POST['reviewButton'])){
 		echo 'Thanks for the review !';
 	}
 	if (isset($_GET['id'])){
-		$productId= $_GET['id'];
-		echo "Product Id : ".$productId;
+		$_SESSION['productId']= $_GET['id'];
+		echo "Product Id : ".$_SESSION['productId'];
 	}
 
+
+	$review = new Review($username,$_SESSION['productId'],$con);
+	include("includes/handlers/review-handler.php");
 ?>
 	<div id="reviewContainer">
 		<form id="reviewForm" action="review.php" method="Post">
 			<p>
-				<?php echo $review->getError(Constants::$notPurchased); ?>
 				<?php echo $review->getError(Constants::$alreadyReviewed); ?>
 				<label for="username">Username </label>
 				<input id="username" name="username" type="text"  required>
@@ -34,8 +35,8 @@ include("includes/handlers/review-handler.php");
 			</p>
 			<p>
 				<?php echo $review->getError(Constants::$reviewLength); ?>
-				<label for="Review">Review </label>
-				<input id="review" name="review" type="text"  required>
+				<label for="reviewText">Review </label>
+				<input id="reviewText" name="reviewText" type="text"  required>
 			</p>
 			<button type="submit" name="reviewButton">SUBMIT</button>
 		</form>
