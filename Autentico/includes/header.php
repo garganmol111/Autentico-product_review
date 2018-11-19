@@ -51,7 +51,7 @@
                   </li>
                
                 <?php } else if($loggedIn) { ?>
-                  <li>Welcome <?php echo $_SESSION['userLoggedIn']; ?> <i class="fas fa-user"></i></li>
+                  <li><a href="#">Welcome <?php echo $_SESSION['userLoggedIn']; ?> </a></li>
                   </li>
                   <li><li><a href="logout.php">Log Out <i class="fas fa-user"></i></a></li>
                   </li>
@@ -65,4 +65,4 @@
 </head>
 <body>
     <div id="background">
-    <ul class="nav navbar-nav navbar-right">
+    
