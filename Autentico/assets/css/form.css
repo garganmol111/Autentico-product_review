@@ -1,0 +1,11 @@
+#rating {
+    border: 2px solid grey;
+    border-radius: 4px;
+    color: black;
+}
+
+#reviewText{
+    border: 2px solid grey;
+    border-radius: 4px;
+    color: black;
+}

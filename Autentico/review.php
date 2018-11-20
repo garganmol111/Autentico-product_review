@@ -17,13 +17,9 @@
 	include("includes/handlers/review-handler.php");
 
 ?>
+	<link rel="stylesheet" href="assets/css/form.css" >
 	<div id="reviewContainer">
 		<form id="reviewForm" action="review.php" method="Post">
-			<p>
-				<?php echo $review->getError(Constants::$alreadyReviewed); ?>
-				<label for="username">Username </label>
-				<input id="username" name="username" type="text"  required>
-			</p>
 			<p>
 				<label for="rating">Rating </label>
 				<input id="rating" name="rating" type="text"  required>
@@ -36,7 +32,7 @@
 			<button type="submit" name="reviewButton">SUBMIT</button>
 		</form>
 	</div>
-
+		
 <?php
  include("includes/footer.php"); 
  ?> 
