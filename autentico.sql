@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2018 at 10:07 PM
+-- Generation Time: Nov 20, 2018 at 01:36 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -78,15 +78,9 @@ CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
-  `review` varchar(500) NOT NULL
+  `review` varchar(500) NOT NULL,
+  `sentiment` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `reviews`
---
-
-INSERT INTO `reviews` (`id`, `userId`, `productId`, `review`) VALUES
-(3, 0, 1, 'Awesome product');
 
 -- --------------------------------------------------------
 
@@ -131,7 +125,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `firstName`, `lastName`, `email`, `password`, `signUpDate`, `profilePic`) VALUES
 (1, 'Arnab_Basu', 'Arnab', 'Basu', 'Arnabbasu98@gmail.com', '9517cc8a6e52b7fda0cfa01ef7c84433', '2018-10-12 00:00:00', 'assets/images/profile-pics/dp.png'),
-(2, 'qwerty', 'Qwerty', 'Ertyu', 'Qwerty@123.com', '3fc0a7acf087f549ac2b266baf94b8b1', '2018-10-30 00:00:00', 'assets/images/profile-pics/dp.png');
+(2, 'qwerty', 'Qwerty', 'Ertyu', 'Qwerty@123.com', '3fc0a7acf087f549ac2b266baf94b8b1', '2018-10-30 00:00:00', 'assets/images/profile-pics/dp.png'),
+(3, 'Tony_Stark', 'Tony', 'Stark', 'Stark@gmail.com', '4b6c87a668ec45c234bb4047bc6fe761', '2018-11-20 00:00:00', 'assets/images/profile-pics/dp.png');
 
 --
 -- Indexes for dumped tables
@@ -187,7 +182,7 @@ ALTER TABLE `producttype`
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `sellers`
@@ -199,7 +194,7 @@ ALTER TABLE `sellers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -46,6 +46,14 @@ class Product{
 	public function getPrice(){
 		return $this->price;
 	}
+	public function getReviews(){
+		$reviews=mysqli_query($this->con,"SELECT id FROM reviews WHERE productId='$this->id'");
+		$array=array();
+		while($row=mysqli_fetch_array($reviews)){
+			array_push($array, $row['id']);
+		}
+		return $array;
+	}
 }
 
 
