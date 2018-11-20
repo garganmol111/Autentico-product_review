@@ -15,6 +15,7 @@
 	}
 	$review = new Review($userId,$_SESSION['productId'],$con);
 	include("includes/handlers/review-handler.php");
+
 ?>
 	<div id="reviewContainer">
 		<form id="reviewForm" action="review.php" method="Post">

@@ -6,6 +6,8 @@ class Review{
 	private $productId;
 	private $review;
 	private $errorArray;
+
+
 	public function __construct($userId,$productId,$con){
 		$this->con=$con;
 		$this->errorArray=array();
