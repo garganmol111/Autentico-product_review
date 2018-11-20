@@ -30,20 +30,6 @@
 			<?php echo "<a href='review.php?id=".$productId."'><span id='showReview'>Write a Review</span></a>" ; ?>
 		</div>
 		<hr style="width: 100%;">
-		<div class="reviewListContainer">
-			<ul class="reviewList">
-				<?php
-				$reviewIdArray=$product->getReviews();
-				$i=1;
-				foreach ($reviewIdArray as $reviewId){
-					$review=new Review($con,$reviewId);
-					echo "<li>BT</li>";
-				$i++;
-				}
-				?>
-			</ul>
-		</div>
-
 	</div>
 
 </div>
